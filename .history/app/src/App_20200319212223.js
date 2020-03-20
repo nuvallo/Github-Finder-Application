@@ -11,13 +11,19 @@ class App extends Component {
     loading: false
   };
 
-  // Search Users
-  searchUsers = async text => {
+  async componentDidMount() {
+    console.log(process.env.REACT_APP_GITHUB_CLIENT_ID);
+    this.setState({ loading: true });
     const res = await axios.get(
-      `https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_SECRET}`
+      `https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_SECRET}`
     );
 
-    this.setState({ users: res.data.items, loading: false });
+    this.setState({ users: res.data, loading: false });
+  }
+
+  // Search User
+  searchUsers = text => {
+    console.log(text);
   };
 
   render() {
