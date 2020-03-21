@@ -11,6 +11,7 @@ const Navbar = ({ icon, title }) => {
       </h1>
       <ul>
         <li>
+          {" "}
           <Link to="/">Home</Link>
         </li>
         <li>
