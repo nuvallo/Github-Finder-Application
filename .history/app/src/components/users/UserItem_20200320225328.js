@@ -17,9 +17,7 @@ const UserItem = ({
       <h5>Followers: {followers_url.length}</h5>
       <h5>Repositories: {repos_url.length}</h5>
       <div>
-        <Link to={`/user/${login}`} className="btn btn-dark btn-sm my-1">
-          More
-        </Link>
+        <Link className="btn btn-dark btn-sm my-1">More</Link>
       </div>
     </div>
   );

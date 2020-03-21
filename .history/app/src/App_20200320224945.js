@@ -34,7 +34,7 @@ class App extends Component {
       `https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_SECRET}`
     );
     console.log(res.data);
-    this.setState({ user: res.data, loading: false });
+    this.setState({ users: res.data, loading: false });
   };
 
   // Clear users from state
@@ -49,7 +49,7 @@ class App extends Component {
   };
 
   render() {
-    const { users, loading, user } = this.state;
+    const { users, loading } = this.state;
     return (
       <Router>
         <div className="App">
@@ -73,18 +73,9 @@ class App extends Component {
                 )}
               />
               <Route exact path="/about" component={About} />
-              <Route
-                exact
-                path="/user/:login"
-                render={props => (
-                  <User
-                    {...props}
-                    getUser={this.getUser}
-                    user={user}
-                    loading={loading}
-                  />
-                )}
-              />
+              <Route>
+                <User />
+              </Route>
             </Switch>
           </div>
         </div>
