@@ -29,9 +29,6 @@ class App extends Component {
   // Alert
   setAlert = (message, type) => {
     this.setState({ alert: { message, type } });
-    setTimeout(() => {
-      this.setState({ alert: null });
-    }, [5000]);
   };
 
   render() {
@@ -40,7 +37,6 @@ class App extends Component {
       <div className="App">
         <Navbar />
         <div className="container">
-          <Alert alert={this.state.alert} />
           <Search
             searchUsers={this.searchUsers}
             clearUsers={this.clearUsers}

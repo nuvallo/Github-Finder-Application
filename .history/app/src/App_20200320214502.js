@@ -29,9 +29,6 @@ class App extends Component {
   // Alert
   setAlert = (message, type) => {
     this.setState({ alert: { message, type } });
-    setTimeout(() => {
-      this.setState({ alert: null });
-    }, [5000]);
   };
 
   render() {
