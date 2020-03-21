@@ -6,12 +6,6 @@ class Search extends Component {
     text: ""
   };
 
-  static propTypes = {
-    searchUsers: PropTypes.func.isRequired,
-    clearUsers: PropTypes.func.isRequired,
-    showClear: PropTypes.bool.isRequired
-  };
-
   onChange = e => this.setState({ text: e.target.value });
   onSubmit = e => {
     e.preventDefault();
@@ -20,7 +14,6 @@ class Search extends Component {
   };
 
   render() {
-    const { showClear, clearUsers } = this.props;
     return (
       <div>
         <form className="form">
@@ -40,19 +33,11 @@ class Search extends Component {
             Search
           </button>
         </form>
-        {showClear && (
-          <button
-            type="submit"
-            value="Search"
-            className="btn btn-light btn-block"
-            onClick={clearUsers}
-          >
-            Clear
-          </button>
-        )}
       </div>
     );
   }
 }
+
+Search.propTypes = PropTypes.object.isRequired;
 
 export default Search;
