@@ -11,7 +11,7 @@ const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
     if (text === "") {
       setAlert("Please enter a username");
     } else {
-      setText(text);
+      setText("");
       searchUsers(text);
     }
   };
